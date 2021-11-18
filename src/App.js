@@ -1,4 +1,7 @@
 import { useState } from "react";
+import CurrentDayCard from "./components/CurrentDayCard";
+import WeekDayCard from "./components/WeekDayCard";
+import { Grid } from "@mui/material";
 import "./App.css";
 
 function App() {
@@ -27,7 +30,32 @@ function App() {
     }
   };
 
-  return <div className="App"></div>;
+  return (
+    <div>
+      <Grid
+        marginTop="0.5rem"
+        alignItems="center"
+        justifyContent="center"
+        display="flex"
+      >
+        <CurrentDayCard></CurrentDayCard>
+      </Grid>
+
+      <Grid
+        container
+        marginTop="0.5rem"
+        spacing={10}
+        margin="auto"
+        alignItems="center"
+        justifyContent="center"
+        display="flex"
+      >
+        {[0, 1, 2, 3, 4, 5, 6].map((forecastday) => (
+          <WeekDayCard></WeekDayCard>
+        ))}
+      </Grid>
+    </div>
+  );
 }
 
 export default App;
