@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CurrentDayCard() {
+function CurrentDayCard(props) {
   const [xAxis, setXAxis] = useState(0);
   const [yAxis, setYAxis] = useState(0);
   const [trans, setTrans] = useState("all 0.5s ease");
@@ -55,7 +55,7 @@ function CurrentDayCard() {
             transform: `translateZ(${depthLocation}px)`,
           }}
         >
-          Timisoara,Romania
+          {props.city},{props.country}
         </h2>
         <div
           className="icon"
@@ -64,10 +64,7 @@ function CurrentDayCard() {
           }}
         >
           <div className="circle">
-            <img
-              src="//cdn.weatherapi.com/weather/64x64/day/122.png"
-              alt="Cloudy"
-            />
+            <img src={props.icon} alt={props.desc} />
           </div>
         </div>
         <h2
@@ -76,7 +73,7 @@ function CurrentDayCard() {
             transform: `translateZ(${depthDeg}px)`,
           }}
         >
-          20&deg;
+          {props.celsius}&deg;
         </h2>
         <div
           className="minMaxDeg"
@@ -84,17 +81,16 @@ function CurrentDayCard() {
             transform: `translateZ(${depthMinMaxDeg}px)`,
           }}
         >
-          <span className="minDeg">Min: 10&deg;</span>
-          <span className="maxDeg">Max: 30&deg;</span>
+          <span className="minDeg">Min: {props.tempMin}&deg;</span>
+          <span className="maxDeg">Max: {props.tempMax}&deg;</span>
         </div>
         <h4
-          className="desc"
           className="desc"
           style={{
             transform: `translateZ(${depthDesc}px)`,
           }}
         >
-          Cloudy
+          {props.desc}
         </h4>
       </div>
     </div>

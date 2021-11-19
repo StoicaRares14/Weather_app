@@ -21,6 +21,8 @@ body {
     rgba(8, 83, 156, 0.75)
   );
 }
+
+/* main card */
 .container {
   width: 120%;
   display: flex;
@@ -86,6 +88,8 @@ body {
   border-radius: 5px;
   margin-left: 1rem;
 }
+
+/* small card */
 
 .container-w {
   width: 50%;
